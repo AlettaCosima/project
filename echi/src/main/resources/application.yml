@@ -1,6 +1,6 @@
 spring:   
   application:
-    name: application-dev
+    name: application-client
   profiles:
     active: dev
 
