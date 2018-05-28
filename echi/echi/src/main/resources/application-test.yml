@@ -1,0 +1,43 @@
+#server setting
+server:
+  port: 8081
+  address: localhost
+  session:
+    timeout: 30
+  context-path: /echi
+  tomcat:
+    uri-encoding: utf-8
+    max-connections: 1000
+    max-threads: 500
+    min-spare-threads: 20
+    accept-count: 100
+    connector: org.apache.coyote.http11.Http11NioProtocol
+    optimize: true
+    accesslog:
+      enabled: true
+      
+#spring setting      
+spring:   
+  redis:
+  #test
+   host: 172.16.228.13
+   password: mypass
+   port: 6379
+   jedis:
+    pool:
+     max-idle: 8
+     min-idle: 0
+     max-active: 8
+     max-wait: 1ms
+
+#mybatis setting      
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+
+#分页插件pagehelper  
+pagehelper:
+  helperDialect: oracle
+  returnPageInfo: check
+  supportMethodsArguments: true
+  reasonable: true
+  params: count=countSql

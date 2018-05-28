@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chentao.echi.mapper.FsHumbasMapper">
+  <resultMap id="BaseResultMap" type="com.chentao.echi.po.FsHumbas">
+    <id column="HUMBAS_NO" jdbcType="VARCHAR" property="humbasNo" />
+    <result column="REG_NO" jdbcType="VARCHAR" property="regNo" />
+    <result column="EMP_NO" jdbcType="VARCHAR" property="empNo" />
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="ID_TYPE" jdbcType="DECIMAL" property="idType" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="DECIMAL" property="sex" />
+    <result column="BIRTHDAY" jdbcType="DATE" property="birthday" />
+    <result column="NATIONALITY" jdbcType="VARCHAR" property="nationality" />
+    <result column="REGI_TYPE" jdbcType="DECIMAL" property="regiType" />
+    <result column="REGI_AREA" jdbcType="VARCHAR" property="regiArea" />
+    <result column="REGI_ADDR" jdbcType="VARCHAR" property="regiAddr" />
+    <result column="SH_ADDR" jdbcType="VARCHAR" property="shAddr" />
+    <result column="ZIP" jdbcType="VARCHAR" property="zip" />
+    <result column="COMPANY" jdbcType="VARCHAR" property="company" />
+    <result column="COMPA_ADDR" jdbcType="VARCHAR" property="compaAddr" />
+    <result column="O_PHONE" jdbcType="VARCHAR" property="oPhone" />
+    <result column="H_PHONE" jdbcType="VARCHAR" property="hPhone" />
+    <result column="BP" jdbcType="VARCHAR" property="bp" />
+    <result column="MP" jdbcType="VARCHAR" property="mp" />
+    <result column="MAIL" jdbcType="VARCHAR" property="mail" />
+    <result column="EM_CONTACT" jdbcType="VARCHAR" property="emContact" />
+    <result column="EM_PHONE" jdbcType="VARCHAR" property="emPhone" />
+    <result column="FESCO" jdbcType="DECIMAL" property="fesco" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="UPDATE_DATE" jdbcType="DATE" property="updateDate" />
+    <result column="CREATER" jdbcType="VARCHAR" property="creater" />
+    <result column="UPDATER" jdbcType="VARCHAR" property="updater" />
+    <result column="STREET" jdbcType="VARCHAR" property="street" />
+    <result column="COMMUNITY" jdbcType="VARCHAR" property="community" />
+    <result column="ROAD_NUM" jdbcType="VARCHAR" property="roadNum" />
+    <result column="ROOM" jdbcType="VARCHAR" property="room" />
+    <result column="BORN_PLACE" jdbcType="VARCHAR" property="bornPlace" />
+    <result column="PM_EMP_NO" jdbcType="VARCHAR" property="pmEmpNo" />
+    <result column="FIRST_CLASS_HOSPITAL" jdbcType="VARCHAR" property="firstClassHospital" />
+    <result column="NAME_EN" jdbcType="VARCHAR" property="nameEn" />
+    <result column="NAME_SPELL" jdbcType="VARCHAR" property="nameSpell" />
+    <result column="REGI_ZIP" jdbcType="VARCHAR" property="regiZip" />
+    <result column="SOCIAL_ADDR" jdbcType="VARCHAR" property="socialAddr" />
+    <result column="WORK_CITY" jdbcType="VARCHAR" property="workCity" />
+    <result column="MEDICAL_ADDR" jdbcType="VARCHAR" property="medicalAddr" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="MARRY" jdbcType="VARCHAR" property="marry" />
+    <result column="PARTY" jdbcType="VARCHAR" property="party" />
+    <result column="REGI_CITY" jdbcType="VARCHAR" property="regiCity" />
+    <result column="SH_AREA" jdbcType="VARCHAR" property="shArea" />
+    <result column="TAX_ADDR_TYPE" jdbcType="VARCHAR" property="taxAddrType" />
+    <result column="TAX_ADDR" jdbcType="VARCHAR" property="taxAddr" />
+    <result column="TAX_ZIP" jdbcType="VARCHAR" property="taxZip" />
+    <result column="SECOND_EMAIL" jdbcType="VARCHAR" property="secondEmail" />
+    <result column="ASSIGN_STATUS" jdbcType="VARCHAR" property="assignStatus" />
+    <result column="KINGDEE_CODE" jdbcType="VARCHAR" property="kingdeeCode" />
+    <result column="SFSC_CODE" jdbcType="VARCHAR" property="sfscCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    HUMBAS_NO, REG_NO, EMP_NO, ID, ID_TYPE, NAME, SEX, BIRTHDAY, NATIONALITY, REGI_TYPE, 
+    REGI_AREA, REGI_ADDR, SH_ADDR, ZIP, COMPANY, COMPA_ADDR, O_PHONE, H_PHONE, BP, MP, 
+    MAIL, EM_CONTACT, EM_PHONE, FESCO, CREATE_DATE, UPDATE_DATE, CREATER, UPDATER, STREET, 
+    COMMUNITY, ROAD_NUM, ROOM, BORN_PLACE, PM_EMP_NO, FIRST_CLASS_HOSPITAL, NAME_EN, 
+    NAME_SPELL, REGI_ZIP, SOCIAL_ADDR, WORK_CITY, MEDICAL_ADDR, NATION, MARRY, PARTY, 
+    REGI_CITY, SH_AREA, TAX_ADDR_TYPE, TAX_ADDR, TAX_ZIP, SECOND_EMAIL, ASSIGN_STATUS, 
+    KINGDEE_CODE, SFSC_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.chentao.echi.po.FsHumbasExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CENTERDB.FS_HUMBAS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CENTERDB.FS_HUMBAS
+    where HUMBAS_NO = #{humbasNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPage"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CENTERDB.FS_HUMBAS
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from CENTERDB.FS_HUMBAS
+    where HUMBAS_NO = #{humbasNo,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chentao.echi.po.FsHumbasExample">
+    delete from CENTERDB.FS_HUMBAS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chentao.echi.po.FsHumbas">
+    insert into CENTERDB.FS_HUMBAS (HUMBAS_NO, REG_NO, EMP_NO, 
+      ID, ID_TYPE, NAME, SEX, 
+      BIRTHDAY, NATIONALITY, REGI_TYPE, 
+      REGI_AREA, REGI_ADDR, SH_ADDR, 
+      ZIP, COMPANY, COMPA_ADDR, 
+      O_PHONE, H_PHONE, BP, 
+      MP, MAIL, EM_CONTACT, 
+      EM_PHONE, FESCO, CREATE_DATE, 
+      UPDATE_DATE, CREATER, UPDATER, 
+      STREET, COMMUNITY, ROAD_NUM, 
+      ROOM, BORN_PLACE, PM_EMP_NO, 
+      FIRST_CLASS_HOSPITAL, NAME_EN, NAME_SPELL, 
+      REGI_ZIP, SOCIAL_ADDR, WORK_CITY, 
+      MEDICAL_ADDR, NATION, MARRY, 
+      PARTY, REGI_CITY, SH_AREA, 
+      TAX_ADDR_TYPE, TAX_ADDR, TAX_ZIP, 
+      SECOND_EMAIL, ASSIGN_STATUS, KINGDEE_CODE, 
+      SFSC_CODE)
+    values (#{humbasNo,jdbcType=VARCHAR}, #{regNo,jdbcType=VARCHAR}, #{empNo,jdbcType=VARCHAR}, 
+      #{id,jdbcType=VARCHAR}, #{idType,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=DECIMAL}, 
+      #{birthday,jdbcType=DATE}, #{nationality,jdbcType=VARCHAR}, #{regiType,jdbcType=DECIMAL}, 
+      #{regiArea,jdbcType=VARCHAR}, #{regiAddr,jdbcType=VARCHAR}, #{shAddr,jdbcType=VARCHAR}, 
+      #{zip,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{compaAddr,jdbcType=VARCHAR}, 
+      #{oPhone,jdbcType=VARCHAR}, #{hPhone,jdbcType=VARCHAR}, #{bp,jdbcType=VARCHAR}, 
+      #{mp,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR}, #{emContact,jdbcType=VARCHAR}, 
+      #{emPhone,jdbcType=VARCHAR}, #{fesco,jdbcType=DECIMAL}, #{createDate,jdbcType=DATE}, 
+      #{updateDate,jdbcType=DATE}, #{creater,jdbcType=VARCHAR}, #{updater,jdbcType=VARCHAR}, 
+      #{street,jdbcType=VARCHAR}, #{community,jdbcType=VARCHAR}, #{roadNum,jdbcType=VARCHAR}, 
+      #{room,jdbcType=VARCHAR}, #{bornPlace,jdbcType=VARCHAR}, #{pmEmpNo,jdbcType=VARCHAR}, 
+      #{firstClassHospital,jdbcType=VARCHAR}, #{nameEn,jdbcType=VARCHAR}, #{nameSpell,jdbcType=VARCHAR}, 
+      #{regiZip,jdbcType=VARCHAR}, #{socialAddr,jdbcType=VARCHAR}, #{workCity,jdbcType=VARCHAR}, 
+      #{medicalAddr,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{marry,jdbcType=VARCHAR}, 
+      #{party,jdbcType=VARCHAR}, #{regiCity,jdbcType=VARCHAR}, #{shArea,jdbcType=VARCHAR}, 
+      #{taxAddrType,jdbcType=VARCHAR}, #{taxAddr,jdbcType=VARCHAR}, #{taxZip,jdbcType=VARCHAR}, 
+      #{secondEmail,jdbcType=VARCHAR}, #{assignStatus,jdbcType=VARCHAR}, #{kingdeeCode,jdbcType=VARCHAR}, 
+      #{sfscCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chentao.echi.po.FsHumbas">
+    insert into CENTERDB.FS_HUMBAS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="humbasNo != null">
+        HUMBAS_NO,
+      </if>
+      <if test="regNo != null">
+        REG_NO,
+      </if>
+      <if test="empNo != null">
+        EMP_NO,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="idType != null">
+        ID_TYPE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="nationality != null">
+        NATIONALITY,
+      </if>
+      <if test="regiType != null">
+        REGI_TYPE,
+      </if>
+      <if test="regiArea != null">
+        REGI_AREA,
+      </if>
+      <if test="regiAddr != null">
+        REGI_ADDR,
+      </if>
+      <if test="shAddr != null">
+        SH_ADDR,
+      </if>
+      <if test="zip != null">
+        ZIP,
+      </if>
+      <if test="company != null">
+        COMPANY,
+      </if>
+      <if test="compaAddr != null">
+        COMPA_ADDR,
+      </if>
+      <if test="oPhone != null">
+        O_PHONE,
+      </if>
+      <if test="hPhone != null">
+        H_PHONE,
+      </if>
+      <if test="bp != null">
+        BP,
+      </if>
+      <if test="mp != null">
+        MP,
+      </if>
+      <if test="mail != null">
+        MAIL,
+      </if>
+      <if test="emContact != null">
+        EM_CONTACT,
+      </if>
+      <if test="emPhone != null">
+        EM_PHONE,
+      </if>
+      <if test="fesco != null">
+        FESCO,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="creater != null">
+        CREATER,
+      </if>
+      <if test="updater != null">
+        UPDATER,
+      </if>
+      <if test="street != null">
+        STREET,
+      </if>
+      <if test="community != null">
+        COMMUNITY,
+      </if>
+      <if test="roadNum != null">
+        ROAD_NUM,
+      </if>
+      <if test="room != null">
+        ROOM,
+      </if>
+      <if test="bornPlace != null">
+        BORN_PLACE,
+      </if>
+      <if test="pmEmpNo != null">
+        PM_EMP_NO,
+      </if>
+      <if test="firstClassHospital != null">
+        FIRST_CLASS_HOSPITAL,
+      </if>
+      <if test="nameEn != null">
+        NAME_EN,
+      </if>
+      <if test="nameSpell != null">
+        NAME_SPELL,
+      </if>
+      <if test="regiZip != null">
+        REGI_ZIP,
+      </if>
+      <if test="socialAddr != null">
+        SOCIAL_ADDR,
+      </if>
+      <if test="workCity != null">
+        WORK_CITY,
+      </if>
+      <if test="medicalAddr != null">
+        MEDICAL_ADDR,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="marry != null">
+        MARRY,
+      </if>
+      <if test="party != null">
+        PARTY,
+      </if>
+      <if test="regiCity != null">
+        REGI_CITY,
+      </if>
+      <if test="shArea != null">
+        SH_AREA,
+      </if>
+      <if test="taxAddrType != null">
+        TAX_ADDR_TYPE,
+      </if>
+      <if test="taxAddr != null">
+        TAX_ADDR,
+      </if>
+      <if test="taxZip != null">
+        TAX_ZIP,
+      </if>
+      <if test="secondEmail != null">
+        SECOND_EMAIL,
+      </if>
+      <if test="assignStatus != null">
+        ASSIGN_STATUS,
+      </if>
+      <if test="kingdeeCode != null">
+        KINGDEE_CODE,
+      </if>
+      <if test="sfscCode != null">
+        SFSC_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="humbasNo != null">
+        #{humbasNo,jdbcType=VARCHAR},
+      </if>
+      <if test="regNo != null">
+        #{regNo,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        #{idType,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="regiType != null">
+        #{regiType,jdbcType=DECIMAL},
+      </if>
+      <if test="regiArea != null">
+        #{regiArea,jdbcType=VARCHAR},
+      </if>
+      <if test="regiAddr != null">
+        #{regiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="shAddr != null">
+        #{shAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="compaAddr != null">
+        #{compaAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="oPhone != null">
+        #{oPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hPhone != null">
+        #{hPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bp != null">
+        #{bp,jdbcType=VARCHAR},
+      </if>
+      <if test="mp != null">
+        #{mp,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="emContact != null">
+        #{emContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emPhone != null">
+        #{emPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fesco != null">
+        #{fesco,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null">
+        #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="community != null">
+        #{community,jdbcType=VARCHAR},
+      </if>
+      <if test="roadNum != null">
+        #{roadNum,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="bornPlace != null">
+        #{bornPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="pmEmpNo != null">
+        #{pmEmpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="firstClassHospital != null">
+        #{firstClassHospital,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null">
+        #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameSpell != null">
+        #{nameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="regiZip != null">
+        #{regiZip,jdbcType=VARCHAR},
+      </if>
+      <if test="socialAddr != null">
+        #{socialAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workCity != null">
+        #{workCity,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalAddr != null">
+        #{medicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="party != null">
+        #{party,jdbcType=VARCHAR},
+      </if>
+      <if test="regiCity != null">
+        #{regiCity,jdbcType=VARCHAR},
+      </if>
+      <if test="shArea != null">
+        #{shArea,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAddrType != null">
+        #{taxAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAddr != null">
+        #{taxAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="taxZip != null">
+        #{taxZip,jdbcType=VARCHAR},
+      </if>
+      <if test="secondEmail != null">
+        #{secondEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="assignStatus != null">
+        #{assignStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="kingdeeCode != null">
+        #{kingdeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sfscCode != null">
+        #{sfscCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chentao.echi.po.FsHumbasExample" resultType="java.lang.Long">
+    select count(*) from CENTERDB.FS_HUMBAS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update CENTERDB.FS_HUMBAS
+    <set>
+      <if test="record.humbasNo != null">
+        HUMBAS_NO = #{record.humbasNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regNo != null">
+        REG_NO = #{record.regNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.empNo != null">
+        EMP_NO = #{record.empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idType != null">
+        ID_TYPE = #{record.idType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        SEX = #{record.sex,jdbcType=DECIMAL},
+      </if>
+      <if test="record.birthday != null">
+        BIRTHDAY = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.nationality != null">
+        NATIONALITY = #{record.nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regiType != null">
+        REGI_TYPE = #{record.regiType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.regiArea != null">
+        REGI_AREA = #{record.regiArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regiAddr != null">
+        REGI_ADDR = #{record.regiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shAddr != null">
+        SH_ADDR = #{record.shAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zip != null">
+        ZIP = #{record.zip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.company != null">
+        COMPANY = #{record.company,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compaAddr != null">
+        COMPA_ADDR = #{record.compaAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oPhone != null">
+        O_PHONE = #{record.oPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hPhone != null">
+        H_PHONE = #{record.hPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bp != null">
+        BP = #{record.bp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mp != null">
+        MP = #{record.mp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mail != null">
+        MAIL = #{record.mail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emContact != null">
+        EM_CONTACT = #{record.emContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emPhone != null">
+        EM_PHONE = #{record.emPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fesco != null">
+        FESCO = #{record.fesco,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createDate != null">
+        CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      </if>
+      <if test="record.updateDate != null">
+        UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      </if>
+      <if test="record.creater != null">
+        CREATER = #{record.creater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updater != null">
+        UPDATER = #{record.updater,jdbcType=VARCHAR},
+      </if>
+      <if test="record.street != null">
+        STREET = #{record.street,jdbcType=VARCHAR},
+      </if>
+      <if test="record.community != null">
+        COMMUNITY = #{record.community,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roadNum != null">
+        ROAD_NUM = #{record.roadNum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.room != null">
+        ROOM = #{record.room,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bornPlace != null">
+        BORN_PLACE = #{record.bornPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pmEmpNo != null">
+        PM_EMP_NO = #{record.pmEmpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstClassHospital != null">
+        FIRST_CLASS_HOSPITAL = #{record.firstClassHospital,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameEn != null">
+        NAME_EN = #{record.nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nameSpell != null">
+        NAME_SPELL = #{record.nameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regiZip != null">
+        REGI_ZIP = #{record.regiZip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.socialAddr != null">
+        SOCIAL_ADDR = #{record.socialAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workCity != null">
+        WORK_CITY = #{record.workCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.medicalAddr != null">
+        MEDICAL_ADDR = #{record.medicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        NATION = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marry != null">
+        MARRY = #{record.marry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.party != null">
+        PARTY = #{record.party,jdbcType=VARCHAR},
+      </if>
+      <if test="record.regiCity != null">
+        REGI_CITY = #{record.regiCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shArea != null">
+        SH_AREA = #{record.shArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxAddrType != null">
+        TAX_ADDR_TYPE = #{record.taxAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxAddr != null">
+        TAX_ADDR = #{record.taxAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxZip != null">
+        TAX_ZIP = #{record.taxZip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondEmail != null">
+        SECOND_EMAIL = #{record.secondEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assignStatus != null">
+        ASSIGN_STATUS = #{record.assignStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kingdeeCode != null">
+        KINGDEE_CODE = #{record.kingdeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfscCode != null">
+        SFSC_CODE = #{record.sfscCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update CENTERDB.FS_HUMBAS
+    set HUMBAS_NO = #{record.humbasNo,jdbcType=VARCHAR},
+      REG_NO = #{record.regNo,jdbcType=VARCHAR},
+      EMP_NO = #{record.empNo,jdbcType=VARCHAR},
+      ID = #{record.id,jdbcType=VARCHAR},
+      ID_TYPE = #{record.idType,jdbcType=DECIMAL},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      SEX = #{record.sex,jdbcType=DECIMAL},
+      BIRTHDAY = #{record.birthday,jdbcType=DATE},
+      NATIONALITY = #{record.nationality,jdbcType=VARCHAR},
+      REGI_TYPE = #{record.regiType,jdbcType=DECIMAL},
+      REGI_AREA = #{record.regiArea,jdbcType=VARCHAR},
+      REGI_ADDR = #{record.regiAddr,jdbcType=VARCHAR},
+      SH_ADDR = #{record.shAddr,jdbcType=VARCHAR},
+      ZIP = #{record.zip,jdbcType=VARCHAR},
+      COMPANY = #{record.company,jdbcType=VARCHAR},
+      COMPA_ADDR = #{record.compaAddr,jdbcType=VARCHAR},
+      O_PHONE = #{record.oPhone,jdbcType=VARCHAR},
+      H_PHONE = #{record.hPhone,jdbcType=VARCHAR},
+      BP = #{record.bp,jdbcType=VARCHAR},
+      MP = #{record.mp,jdbcType=VARCHAR},
+      MAIL = #{record.mail,jdbcType=VARCHAR},
+      EM_CONTACT = #{record.emContact,jdbcType=VARCHAR},
+      EM_PHONE = #{record.emPhone,jdbcType=VARCHAR},
+      FESCO = #{record.fesco,jdbcType=DECIMAL},
+      CREATE_DATE = #{record.createDate,jdbcType=DATE},
+      UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+      CREATER = #{record.creater,jdbcType=VARCHAR},
+      UPDATER = #{record.updater,jdbcType=VARCHAR},
+      STREET = #{record.street,jdbcType=VARCHAR},
+      COMMUNITY = #{record.community,jdbcType=VARCHAR},
+      ROAD_NUM = #{record.roadNum,jdbcType=VARCHAR},
+      ROOM = #{record.room,jdbcType=VARCHAR},
+      BORN_PLACE = #{record.bornPlace,jdbcType=VARCHAR},
+      PM_EMP_NO = #{record.pmEmpNo,jdbcType=VARCHAR},
+      FIRST_CLASS_HOSPITAL = #{record.firstClassHospital,jdbcType=VARCHAR},
+      NAME_EN = #{record.nameEn,jdbcType=VARCHAR},
+      NAME_SPELL = #{record.nameSpell,jdbcType=VARCHAR},
+      REGI_ZIP = #{record.regiZip,jdbcType=VARCHAR},
+      SOCIAL_ADDR = #{record.socialAddr,jdbcType=VARCHAR},
+      WORK_CITY = #{record.workCity,jdbcType=VARCHAR},
+      MEDICAL_ADDR = #{record.medicalAddr,jdbcType=VARCHAR},
+      NATION = #{record.nation,jdbcType=VARCHAR},
+      MARRY = #{record.marry,jdbcType=VARCHAR},
+      PARTY = #{record.party,jdbcType=VARCHAR},
+      REGI_CITY = #{record.regiCity,jdbcType=VARCHAR},
+      SH_AREA = #{record.shArea,jdbcType=VARCHAR},
+      TAX_ADDR_TYPE = #{record.taxAddrType,jdbcType=VARCHAR},
+      TAX_ADDR = #{record.taxAddr,jdbcType=VARCHAR},
+      TAX_ZIP = #{record.taxZip,jdbcType=VARCHAR},
+      SECOND_EMAIL = #{record.secondEmail,jdbcType=VARCHAR},
+      ASSIGN_STATUS = #{record.assignStatus,jdbcType=VARCHAR},
+      KINGDEE_CODE = #{record.kingdeeCode,jdbcType=VARCHAR},
+      SFSC_CODE = #{record.sfscCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chentao.echi.po.FsHumbas">
+    update CENTERDB.FS_HUMBAS
+    <set>
+      <if test="regNo != null">
+        REG_NO = #{regNo,jdbcType=VARCHAR},
+      </if>
+      <if test="empNo != null">
+        EMP_NO = #{empNo,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        ID = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null">
+        ID_TYPE = #{idType,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="nationality != null">
+        NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="regiType != null">
+        REGI_TYPE = #{regiType,jdbcType=DECIMAL},
+      </if>
+      <if test="regiArea != null">
+        REGI_AREA = #{regiArea,jdbcType=VARCHAR},
+      </if>
+      <if test="regiAddr != null">
+        REGI_ADDR = #{regiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="shAddr != null">
+        SH_ADDR = #{shAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null">
+        ZIP = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        COMPANY = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="compaAddr != null">
+        COMPA_ADDR = #{compaAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="oPhone != null">
+        O_PHONE = #{oPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hPhone != null">
+        H_PHONE = #{hPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="bp != null">
+        BP = #{bp,jdbcType=VARCHAR},
+      </if>
+      <if test="mp != null">
+        MP = #{mp,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        MAIL = #{mail,jdbcType=VARCHAR},
+      </if>
+      <if test="emContact != null">
+        EM_CONTACT = #{emContact,jdbcType=VARCHAR},
+      </if>
+      <if test="emPhone != null">
+        EM_PHONE = #{emPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="fesco != null">
+        FESCO = #{fesco,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="creater != null">
+        CREATER = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null">
+        UPDATER = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null">
+        STREET = #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="community != null">
+        COMMUNITY = #{community,jdbcType=VARCHAR},
+      </if>
+      <if test="roadNum != null">
+        ROAD_NUM = #{roadNum,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null">
+        ROOM = #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="bornPlace != null">
+        BORN_PLACE = #{bornPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="pmEmpNo != null">
+        PM_EMP_NO = #{pmEmpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="firstClassHospital != null">
+        FIRST_CLASS_HOSPITAL = #{firstClassHospital,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null">
+        NAME_EN = #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="nameSpell != null">
+        NAME_SPELL = #{nameSpell,jdbcType=VARCHAR},
+      </if>
+      <if test="regiZip != null">
+        REGI_ZIP = #{regiZip,jdbcType=VARCHAR},
+      </if>
+      <if test="socialAddr != null">
+        SOCIAL_ADDR = #{socialAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="workCity != null">
+        WORK_CITY = #{workCity,jdbcType=VARCHAR},
+      </if>
+      <if test="medicalAddr != null">
+        MEDICAL_ADDR = #{medicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        MARRY = #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="party != null">
+        PARTY = #{party,jdbcType=VARCHAR},
+      </if>
+      <if test="regiCity != null">
+        REGI_CITY = #{regiCity,jdbcType=VARCHAR},
+      </if>
+      <if test="shArea != null">
+        SH_AREA = #{shArea,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAddrType != null">
+        TAX_ADDR_TYPE = #{taxAddrType,jdbcType=VARCHAR},
+      </if>
+      <if test="taxAddr != null">
+        TAX_ADDR = #{taxAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="taxZip != null">
+        TAX_ZIP = #{taxZip,jdbcType=VARCHAR},
+      </if>
+      <if test="secondEmail != null">
+        SECOND_EMAIL = #{secondEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="assignStatus != null">
+        ASSIGN_STATUS = #{assignStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="kingdeeCode != null">
+        KINGDEE_CODE = #{kingdeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sfscCode != null">
+        SFSC_CODE = #{sfscCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HUMBAS_NO = #{humbasNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chentao.echi.po.FsHumbas">
+    update CENTERDB.FS_HUMBAS
+    set REG_NO = #{regNo,jdbcType=VARCHAR},
+      EMP_NO = #{empNo,jdbcType=VARCHAR},
+      ID = #{id,jdbcType=VARCHAR},
+      ID_TYPE = #{idType,jdbcType=DECIMAL},
+      NAME = #{name,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=DECIMAL},
+      BIRTHDAY = #{birthday,jdbcType=DATE},
+      NATIONALITY = #{nationality,jdbcType=VARCHAR},
+      REGI_TYPE = #{regiType,jdbcType=DECIMAL},
+      REGI_AREA = #{regiArea,jdbcType=VARCHAR},
+      REGI_ADDR = #{regiAddr,jdbcType=VARCHAR},
+      SH_ADDR = #{shAddr,jdbcType=VARCHAR},
+      ZIP = #{zip,jdbcType=VARCHAR},
+      COMPANY = #{company,jdbcType=VARCHAR},
+      COMPA_ADDR = #{compaAddr,jdbcType=VARCHAR},
+      O_PHONE = #{oPhone,jdbcType=VARCHAR},
+      H_PHONE = #{hPhone,jdbcType=VARCHAR},
+      BP = #{bp,jdbcType=VARCHAR},
+      MP = #{mp,jdbcType=VARCHAR},
+      MAIL = #{mail,jdbcType=VARCHAR},
+      EM_CONTACT = #{emContact,jdbcType=VARCHAR},
+      EM_PHONE = #{emPhone,jdbcType=VARCHAR},
+      FESCO = #{fesco,jdbcType=DECIMAL},
+      CREATE_DATE = #{createDate,jdbcType=DATE},
+      UPDATE_DATE = #{updateDate,jdbcType=DATE},
+      CREATER = #{creater,jdbcType=VARCHAR},
+      UPDATER = #{updater,jdbcType=VARCHAR},
+      STREET = #{street,jdbcType=VARCHAR},
+      COMMUNITY = #{community,jdbcType=VARCHAR},
+      ROAD_NUM = #{roadNum,jdbcType=VARCHAR},
+      ROOM = #{room,jdbcType=VARCHAR},
+      BORN_PLACE = #{bornPlace,jdbcType=VARCHAR},
+      PM_EMP_NO = #{pmEmpNo,jdbcType=VARCHAR},
+      FIRST_CLASS_HOSPITAL = #{firstClassHospital,jdbcType=VARCHAR},
+      NAME_EN = #{nameEn,jdbcType=VARCHAR},
+      NAME_SPELL = #{nameSpell,jdbcType=VARCHAR},
+      REGI_ZIP = #{regiZip,jdbcType=VARCHAR},
+      SOCIAL_ADDR = #{socialAddr,jdbcType=VARCHAR},
+      WORK_CITY = #{workCity,jdbcType=VARCHAR},
+      MEDICAL_ADDR = #{medicalAddr,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      MARRY = #{marry,jdbcType=VARCHAR},
+      PARTY = #{party,jdbcType=VARCHAR},
+      REGI_CITY = #{regiCity,jdbcType=VARCHAR},
+      SH_AREA = #{shArea,jdbcType=VARCHAR},
+      TAX_ADDR_TYPE = #{taxAddrType,jdbcType=VARCHAR},
+      TAX_ADDR = #{taxAddr,jdbcType=VARCHAR},
+      TAX_ZIP = #{taxZip,jdbcType=VARCHAR},
+      SECOND_EMAIL = #{secondEmail,jdbcType=VARCHAR},
+      ASSIGN_STATUS = #{assignStatus,jdbcType=VARCHAR},
+      KINGDEE_CODE = #{kingdeeCode,jdbcType=VARCHAR},
+      SFSC_CODE = #{sfscCode,jdbcType=VARCHAR}
+    where HUMBAS_NO = #{humbasNo,jdbcType=VARCHAR}
+  </update>
+</mapper>
