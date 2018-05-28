@@ -27,7 +27,7 @@ public class DruidDBConfig {
     @Value("${name}")
     private String name;
 
-    @Value("${password}")
+    @Value("${neo}")
     private String password;
 
     @Value("${driverClassName}")

@@ -1,11 +1,10 @@
 package com.chentao.echi.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value = "/spark")
+@RestController
 public class SparkController {
 	@Value("${neo}")
 	private String password;
