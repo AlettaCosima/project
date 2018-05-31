@@ -3,9 +3,16 @@ spring:
     name: application-client
   profiles:
     active: dev
-
   cloud:
-   config:
-    server:
-     git:
-      uri: https://github.com/AlettaCosima/project
+    bus:
+     trace:
+      enabled: true
+  rabbitmq:
+    host: 203.195.163.69
+    port: 5672
+    username: chentao
+    password: chentao
+
+management:
+  security:
+    enabled: false

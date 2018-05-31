@@ -1,13 +1,12 @@
-package com.chentao.echi;
+package com.echi.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EchiApplication {
+public class EurekaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EchiApplication.class, args);
+		SpringApplication.run(EurekaApplication.class, args);
 	}
 }
- 
