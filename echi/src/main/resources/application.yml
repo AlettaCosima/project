@@ -4,9 +4,9 @@ spring:
   profiles:
     active: dev
   cloud:
-    bus:
-     trace:
-      enabled: true
+    #bus:
+     #trace:
+      #enabled: true
     config:
      name:config-client
      profile:dev
