@@ -3,15 +3,6 @@ spring:
     name: application-client
   profiles:
     active: dev
-  cloud:
-    bus:
-     trace:
-      enabled: true
-  rabbitmq:
-    host: 203.195.163.69
-    port: 5672
-    username: chentao
-    password: chentao
 security:  
   basic:  
     enabled: true    #启用SpringSecurity的安全配置项  
