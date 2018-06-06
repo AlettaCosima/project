@@ -3,10 +3,6 @@ spring:
     name: application-client
   profiles:
     active: dev
-  cloud:
-    #bus:
-     #trace:
-      #enabled: true
   rabbitmq:
     host: 203.195.163.69
     port: 5672
@@ -18,8 +14,8 @@ management:
   security:
     enabled: false
     
-eureka:
-  client:
-    registryFetchIntervalSeconds: 5
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVICE_URL:http://203.195.163.69:1110}/eureka/
+#eureka:
+  #client:
+    #registryFetchIntervalSeconds: 5
+    #serviceUrl:
+      #defaultZone: ${EUREKA_SERVICE_URL:http://203.195.163.69:1110}/eureka/
