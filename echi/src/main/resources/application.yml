@@ -7,31 +7,18 @@ spring:
     #bus:
      #trace:
       #enabled: true
-    config:
-     name:config-client
-     profile:dev
-     label:master
   rabbitmq:
     host: 203.195.163.69
     port: 5672
     username: chentao
     password: chentao
-security:  
-  basic:  
-    enabled: true    #启用SpringSecurity的安全配置项  
-  user:  
-    name: chentao    #认证用户名  
-    password: chentao #认证密码  
-    #role:              #授权角色
+
 
 management:
   security:
     enabled: false
     
 eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    prefer-ip-address: true
   client:
     registryFetchIntervalSeconds: 5
     serviceUrl:
