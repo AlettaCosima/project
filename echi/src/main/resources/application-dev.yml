@@ -1,6 +1,6 @@
 #server setting
 server:
-  port: 8080
+  port: 80
   address: localhost
   session:
     timeout: 30
@@ -17,22 +17,11 @@ server:
       enabled: true
       
 #spring setting      
-spring:   
-  redis:
-  #test
-   host: 172.16.228.13
-   password: mypass
-   port: 6379
-   jedis:
-    pool:
-     max-idle: 8
-     min-idle: 0
-     max-active: 8
-     max-wait: 1ms
+
      
 #mybatis setting      
-mybatis:
-  mapper-locations: classpath:mapping/*.xml
+#mybatis:
+  #mapper-locations: classpath:mapping/*.xml
 
 #分页插件pagehelper  
 pagehelper:

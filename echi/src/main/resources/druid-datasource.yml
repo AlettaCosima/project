@@ -1,14 +1,14 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:oracle:thin:@172.16.96.191:1521:dltest
-    name: Centerdb
-    password: centerdb123
-    driverClassName: oracle.jdbc.driver.OracleDriver
-    #url: jdbc:mysql://106.14.208.236:3306/echi?useUnicode=true&characterEncoding=UTF-8
-    #name: root
-    #password: Ctangel@123
-    #driverClassName: com.mysql.cj.jdbc.Driver
+    #url: jdbc:oracle:thin:@172.16.96.191:1521:dltest
+    #name: Centerdb
+    #password: centerdb123
+    #driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:mysql://bj-cdb-c3k2aux1.sql.tencentcdb.com:63312/echi?useUnicode=true&characterEncoding=UTF-8
+    name: root
+    password: chentao@123456
+    driverClassName: com.mysql.cj.jdbc.Driver
     initialSize: 5
     minIdle: 5
     maxActive: 20
